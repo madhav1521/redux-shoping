@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* header ==================== */
+.header{height: 8rem;  background: linear-gradient(to right, rgba(30, 50, 72, 0.8) 40%, rgba(72, 21, 59, 0.8) 60%);
+width: 100%;display: flex;justify-content: space-around;align-items: center; margin: auto;}
+.cart-item{background-color: rgba(38, 85, 72, 0.797);border-radius: 0.6rem;}
+
+.product-list{background-color: #adb5bd;}
+
+
+
+
+
+
+
+
+
