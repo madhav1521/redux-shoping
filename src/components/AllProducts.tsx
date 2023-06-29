@@ -1,8 +1,12 @@
-import { Box, Button, Card, Container, Grid, Typography } from '@mui/material'
+import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../store/actions/CartSlice';
 
 interface Product {
-    id: number;
+    _id: string | number;
+    name: string;
+    itemId: number | string;
     title: string;
     category: {
         id: number;
@@ -10,8 +14,10 @@ interface Product {
     };
     price: number;
 }
+
 const AllProducts: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,10 +35,21 @@ const AllProducts: React.FC = () => {
         fetchData();
     }, []);
 
+    const addToCartHandler = (item: Product):void => {
+        dispatch(cartActions.addItemToCart({
+            itemId: item._id,
+            title: item.title,
+            price: item.price,
+            category: item.category,
+            quantity: 0,
+            totalPrice: 0,
+        }));
+      };
+
     return (
         <React.Fragment>
             <Container maxWidth='xl'>
-                <Grid container className='d-flex row'>
+                <Grid container className='d-flex row m-0 py-3'>
                     {products.map((product, index) => (
                         <Grid item xs={12} sm={6} md={4} key={index}>
                             <Box className='product-list'>
@@ -42,7 +59,7 @@ const AllProducts: React.FC = () => {
                                 </Box>
                                 <Box className='d-xl-flex justify-content-between mt-3'>
                                     <Typography variant="h6" component="div" className='fw-bold text-dark'>Category: {product.category.name}</Typography>
-                                    <Button variant='contained' className='text-capitalize'>Add to Cart</Button>
+                                    <Button variant='contained' className='text-capitalize' onClick={() => addToCartHandler(product)}>Add to Cart</Button>
                                 </Box>
                             </Box>
                         </Grid>

@@ -14,15 +14,22 @@ code {
 *{
   box-sizing: border-box;
 }
-
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --primary: #6D1B7B;
+}
+.loading{color: white;}
 /* header ==================== */
-.header{height: 8rem;  background: linear-gradient(to right, rgba(30, 50, 72, 0.8) 40%, rgba(72, 21, 59, 0.8) 60%);
+.header{height: 8rem;  background: linear-gradient(to right, rgb(72 30 30 / 80%) 50%, rgb(72 51 21 / 80%) 90%);
 width: 100%;display: flex;justify-content: space-around;align-items: center; margin: auto;}
-.cart-item{background-color: rgba(38, 85, 72, 0.797);border-radius: 0.6rem;}
+.cart-item{background-color: rgba(38, 85, 72, 0.797);border-radius: 0.6rem; margin-bottom: 1rem; padding: 1rem;}
+.cart-btn p{padding: 0.1rem 0.7rem; border-radius: 2rem; background-color: var(--primary);margin: 0 0 0 1rem;}
 
 .product-list{background-image: linear-gradient(180deg, #ffffffbd, #92829c);align-self: center;height: auto; padding: 2rem; margin: 2rem 0 0;}
-.loading{color: white;}
-
+.cart-AR-btn{border: 0;border-radius: 5px;margin: auto 1rem;width: 2.5rem;height: 2.5rem;}
+.cart-AR-btn.remove:hover{background-color: brown;color: #ffffff;}
+.cart-AR-btn.add:hover{background-color: var(--blue);color: #ffffff;}
 
 
 
