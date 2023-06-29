@@ -12,14 +12,15 @@ export const appTheme = createTheme({
       },
     },
     components:{
-        MuiPaper:{
-            styleOverrides:{
-                root:{
-                    "&.product-list":{
-                        backgroundColor:'#adb5bd',
-                    }
-                }
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            "&.product-list": {
+              backgroundImage: 'linear-gradient(180deg, #ffffffbd, #92829c)',
             }
+          }
         }
+      }
+      
     }
   });
